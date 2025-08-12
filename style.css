@@ -1,0 +1,741 @@
+/* General Styling */
+:root {
+    --primary-color: #004D99; /* Biru Tua */
+    --accent-color: #33CC66; /* Hijau Cerah */
+    --secondary-accent-color: #FF9933; /* Oranye */
+    --light-bg: #F8F8F8;
+    --dark-bg: #333333;
+    --text-color: #333333;
+    --light-text-color: #FFFFFF;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #ffffff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 3.5em;
+    color: var(--light-text-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+}
+
+h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+.btn-cta, .btn-card, .btn-submit {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--light-text-color);
+    padding: 12px 25px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-cta:hover, .btn-card:hover, .btn-submit:hover {
+    background-color: #27ae60; /* Slightly darker green */
+}
+
+.section-description {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px auto;
+    font-size: 1.1em;
+    color: #666;
+}
+
+/* Header */
+header {
+    background-color: var(--light-bg);
+    padding: 20px 0;
+    box-shadow: 0 2px 5px var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.logo a {
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+}
+
+.logo i {
+    margin-right: 10px;
+    font-size: 1.2em;
+    color: var(--accent-color);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    color: var(--text-color);
+    font-weight: 600;
+    transition: color 0.3s ease;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background-color: var(--accent-color);
+    left: 0;
+    bottom: 0;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+.hamburger {
+    display: none; /* Hidden on desktop */
+    font-size: 1.8em;
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+/* Hero Section */
+.hero-section {
+    background: url('laptop.png') no-repeat center center/cover; /* Ganti dengan gambar relevanmu */
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    color: var(--light-text-color);
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay gelap */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+}
+
+.hero-content p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+/* Layanan Section */
+.layanan-section {
+    padding: 80px 0;
+    background-color: var(--light-bg);
+}
+
+.layanan-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.layanan-item {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--shadow);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.layanan-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.layanan-item .icon-circle {
+    font-size: 3.5em;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+/* Mengapa Kami Section */
+.mengapa-kami-section {
+    padding: 80px 0;
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+}
+
+.mengapa-kami-section h2 {
+    color: var(--light-text-color);
+}
+
+.mengapa-kami-section h2::after {
+    background-color: var(--secondary-accent-color);
+}
+
+.keunggulan-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.keunggulan-item .icon-md {
+    font-size: 3em;
+    color: var(--secondary-accent-color);
+    margin-bottom: 15px;
+}
+
+.keunggulan-item h3 {
+    color: var(--light-text-color);
+    margin-bottom: 10px;
+}
+
+.keunggulan-item p {
+    font-size: 0.95em;
+    opacity: 0.9;
+}
+
+
+/* Harga Section */
+.harga-section {
+    padding: 80px 0;
+    background-color: var(--light-bg);
+}
+
+.harga-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.harga-card {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--shadow);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.harga-card.recommended {
+    border: 3px solid var(--accent-color);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.harga-card:hover:not(.recommended) {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+.harga-card h3 {
+    color: var(--primary-color);
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.harga-card .price {
+    font-size: 2.8em;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.harga-card ul {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 30px;
+    flex-grow: 1; /* Allows list to take up available space */
+}
+
+.harga-card ul li {
+    padding: 8px 0;
+    font-size: 1.1em;
+    border-bottom: 1px dashed #eee;
+    display: flex;
+    align-items: center;
+}
+
+.harga-card ul li:last-child {
+    border-bottom: none;
+}
+
+.harga-card ul li .fa-check {
+    color: var(--accent-color);
+    margin-right: 10px;
+}
+
+.harga-card ul li .fa-times {
+    color: #dc3545; /* Red for times icon */
+    margin-right: 10px;
+}
+
+.harga-card .btn-card {
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+}
+
+/* Testimoni Section */
+.testimoni-section {
+    padding: 80px 0;
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    position: relative;
+    overflow: hidden; /* Hide overflow for carousel */
+}
+
+.testimoni-section h2 {
+    color: var(--light-text-color);
+}
+
+.testimoni-section h2::after {
+    background-color: var(--secondary-accent-color);
+}
+
+.testimoni-carousel {
+    display: flex;
+    overflow-x: hidden; /* Hide scrollbar */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
+    margin-bottom: 30px;
+}
+
+.testimoni-item {
+    min-width: 100%; /* Each item takes full width */
+    flex-shrink: 0;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.testimoni-item img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 3px solid var(--accent-color);
+}
+
+.testimoni-item blockquote {
+    font-size: 1.3em;
+    font-style: italic;
+    margin-bottom: 15px;
+    max-width: 800px;
+    line-height: 1.5;
+}
+
+.testimoni-item .author {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: var(--secondary-accent-color);
+}
+
+.carousel-nav {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.carousel-nav button {
+    background-color: var(--secondary-accent-color);
+    color: var(--light-text-color);
+    border: none;
+    padding: 10px 15px;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-nav button:hover {
+    background-color: #e08e2f; /* Darker orange */
+}
+
+
+/* FAQ Section */
+.faq-section {
+    padding: 80px 0;
+    background-color: var(--light-bg);
+}
+
+.faq-accordion {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.faq-question {
+    padding: 20px 25px;
+    font-weight: bold;
+    font-size: 1.1em;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f5f5f5;
+    transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+    background-color: #eee;
+}
+
+.faq-question i {
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(45deg); /* Change plus to cross */
+}
+
+.faq-answer {
+    padding: 0 25px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+    background-color: #fff;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px; /* Adjust as needed */
+    padding: 20px 25px;
+}
+
+/* Kontak Section */
+.kontak-section {
+    padding: 80px 0;
+    background-color: #fff;
+}
+
+.kontak-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.kontak-form {
+    background-color: var(--light-bg);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--shadow);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1em;
+}
+
+.kontak-info {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--shadow);
+}
+
+.kontak-info h3 {
+    color: var(--light-text-color);
+    margin-bottom: 25px;
+}
+
+.kontak-info p {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    font-size: 1.1em;
+}
+
+.kontak-info p i {
+    margin-right: 10px;
+    color: var(--accent-color);
+    font-size: 1.2em;
+}
+
+.map-container {
+    margin-top: 30px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.map-container iframe {
+    border-radius: 8px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-bg);
+    color: var(--light-text-color);
+    padding: 40px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-content p {
+    margin-bottom: 15px;
+}
+
+.social-links a {
+    color: var(--light-text-color);
+    font-size: 1.5em;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+}
+
+.footer-links {
+    margin-top: 15px;
+}
+
+.footer-links a {
+    color: var(--light-text-color);
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--accent-color);
+}
+
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    h1 {
+        font-size: 3em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    nav ul {
+        display: none; /* Hide desktop nav on smaller screens */
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--light-bg);
+        position: absolute;
+        top: 80px; /* Adjust based on header height */
+        left: 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px 0;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger icon */
+    }
+
+    .hero-section {
+        height: 60vh;
+    }
+
+    .harga-card.recommended {
+        transform: none; /* Remove transform on smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5em;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    .hero-content p {
+        font-size: 1.1em;
+    }
+
+    .layanan-grid, .keunggulan-grid, .harga-grid, .kontak-grid {
+        grid-template-columns: 1fr; /* Stack columns on small screens */
+    }
+
+    .layanan-item, .keunggulan-item, .harga-card, .kontak-form, .kontak-info {
+        padding: 25px;
+    }
+
+    .testimoni-item blockquote {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.6em;
+    }
+
+    .logo {
+        font-size: 1.5em;
+    }
+
+    .btn-cta, .btn-card, .btn-submit {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+
+    .kontak-info p {
+        font-size: 1em;
+    }
+
+    .social-links a {
+        font-size: 1.2em;
+        margin: 0 8px;
+    }
+
+    .footer-links a {
+        margin: 0 10px;
+    }
+}
